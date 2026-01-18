@@ -52,13 +52,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 flex justify-center px-4 py-10">
-      <div className="w-full max-w-xls">
+      <div className="w-full max-w-xl">
         <h1 className="text-white font-bold text-3xl text-slate-200 mt-8 mr-6">
           Todo Pro
         </h1>
       </div>
-      <AddTask startAdd={startAdd} />
-      <TasksList tasks={tasks} />
+      <div className="items-center justify-between">
+        <AddTask startAdd={startAdd} />
+      </div>
+      <TasksList
+        tasks={tasks}
+        isAdding={isAdding}
+        step={step}
+        onSubmitTitle={submitTitle}
+      />
     </div>
   );
 }

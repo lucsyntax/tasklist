@@ -1,6 +1,14 @@
 import { ChevronRight, Trash2Icon } from "lucide-react";
 
-function TasksList({ tasks }) {
+function TasksList({
+  tasks,
+  isAdding,
+  step,
+}: {
+  tasks: any[];
+  isAdding: boolean;
+  step: number;
+}) {
   return (
     <div className="w-full max-w-md bg-slate-500 rounded shadow p-4 mt-6">
       {tasks.map((task) => (
@@ -19,6 +27,11 @@ function TasksList({ tasks }) {
           </div>
         </div>
       ))}
+      {isAdding && (
+        <div className="flex items-center justify-between p-2 mt-3 rounded bg-slate-600 text-slate-100">
+          <span className="font-semibold">Novo task...</span>
+        </div>
+      )}
     </div>
   );
 }
